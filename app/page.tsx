@@ -2,6 +2,7 @@ import Navbar from "@/components/navbar"
 import HeroSection from "@/components/hero-section"
 import AboutSection from "@/components/about-section"
 import TreatmentsSection from "@/components/treatments-section"
+import RecoveryApproach from "@/components/recovery-approach-ui"
 import TestimonialsSection from "@/components/testimonials-section"
 import WhyChooseSection from "@/components/why-choose-section"
 import FaqSection from "@/components/faq-section"
@@ -16,10 +17,11 @@ export default function Home() {
       <HeroSection />
       <AboutSection />
       <TreatmentsSection />
+      <RecoveryApproach />
       <TestimonialsSection />
       <WhyChooseSection />
       <FaqSection />
       <Footer />
-    </main>
+      </main>
   )
 }

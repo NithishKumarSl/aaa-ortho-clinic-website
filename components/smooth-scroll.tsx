@@ -18,12 +18,12 @@ export default function SmoothScroll() {
       if (targetElement) {
         e.preventDefault()
         const header = document.querySelector('.site-header')
-        const headerHeight = header ? header.getBoundingClientRect().height : 80
+        const headerHeight = header ? header.getBoundingClientRect().height : 70
         const rect = targetElement.getBoundingClientRect()
-        const scrollPos = window.scrollY + rect.top - headerHeight - 18
+        const scrollPos = window.scrollY + rect.top - headerHeight - 10
         
         window.scrollTo({
-          top: scrollPos,
+          top: Math.max(0, scrollPos),
           behavior: 'smooth'
         })
       }

@@ -98,7 +98,7 @@ export default function TestimonialsSection() {
   ]
 
   return (
-    <section id="testimonials" className="section testimonials reveal bg-[#f3f7fc] py-20">
+    <section id="testimonials" className="section testimonials reveal bg-[#f3f7fc] py-20 scroll-mt-[70px]">
       <div className="container max-w-[1200px] mx-auto px-8">
         <p className="sub-title text-sm tracking-[1px] text-[#0f5fcc] mb-2.5 font-medium">TESTIMONIALS</p>
         <h3 className="section-title text-[36px] md:text-4xl font-bold text-[#0f5fcc] mb-10 leading-[1.2] text-left">

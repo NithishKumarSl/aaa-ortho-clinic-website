@@ -76,8 +76,8 @@ export default function AboutSection() {
   ]
 
   return (
-    <section id="about" className="about-section bg-[#FDFEFF] w-full py-[50px] md:py-[40px]">
-      <div className="about-container max-w-[1280px] mx-auto bg-[#FDFEFF] px-6">
+    <section id="about" className="about-section bg-[#FDFEFF] w-full py-[50px] md:py-[40px] scroll-mt-[80px] px-5 md:px-[5%]">
+      <div className="about-container max-w-[1280px] mx-auto bg-[#FDFEFF]">
         <p className="about-subtext text-xs font-semibold tracking-[1.2px] text-[#6b7c93] uppercase mb-2">ABOUT US</p>
         <h2 className="about-title text-[32px] md:text-[42px] font-bold text-[#0a65d9] leading-[1.2] mb-6 md:mb-10 mt-0">
           Caring for Your Joints, <br />
