@@ -38,7 +38,7 @@ export default function FaqSection() {
   ];
 
   return (
-    <section className="py-16 md:py-20 bg-[#f5faff] px-5 md:px-[5%]">
+    <section id="faq" className="py-16 md:py-20 bg-[#f5faff] px-5 md:px-[5%]">
       <div className="max-w-[1280px] mx-auto">
         <p className="text-[#0f5fcc] text-sm font-medium mb-2">FAQ</p>
 
