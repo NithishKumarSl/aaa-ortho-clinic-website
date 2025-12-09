@@ -73,7 +73,7 @@ export default function HeroSection() {
       </div>
 
       {/* IMAGE + DOCTOR CARD */}
-      <div className="image-wrapper w-full max-w-[520px] md:max-w-[580px] md:w-1/2 h-auto mx-4 md:mx-0 rounded-[24px] overflow-hidden relative flex-shrink-0">
+      <div className="image-wrapper w-full max-w-[520px] md:max-w-[580px] md:w-1/2 h-auto mx-4 md:mx-0 rounded-[24px] overflow-hidden relative shrink-0">
         <div className="parallax-layer will-change-transform rounded-[24px] overflow-hidden">
           <img 
             ref={parallaxImgRef}

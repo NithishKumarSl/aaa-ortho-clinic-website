@@ -33,29 +33,29 @@ export default function Navbar() {
   }
 
   return (
-    <header className="site-header fixed top-0 left-0 right-0 z-[100] bg-[rgba(255,255,255,0.95)] backdrop-blur-[8px] border-b border-[rgba(20,60,120,0.06)] shadow-[0_2px_8px_rgba(0,0,0,0.04)] px-5 md:px-[5%]">
+    <header className="site-header fixed top-0 left-0 right-0 z-100 bg-white border-b border-[#e5eef8] shadow-[0_2px_10px_rgba(10,60,140,0.04)] px-5 md:px-[5%]">
       <div className="container max-w-[1280px] mx-auto">
-        <div className="header-inner flex items-center justify-between gap-4 py-3.5 min-h-[70px]">
+        <div className="header-inner flex items-center justify-between gap-6 py-3.5 min-h-[70px]">
           {/* Logo */}
-          <a href="#top" className="brand flex items-center gap-2.5 no-underline text-[#0f5fcc] font-bold">
-            <span className="brand-text lowercase text-lg md:text-base">AAA Ortho Clinic</span>
+          <a href="#top" className="brand flex items-center gap-2.5 no-underline text-[#1e73d7] font-bold tracking-tight">
+            <span className="brand-text text-lg md:text-lg">AAA ortho clinic</span>
           </a>
 
           {/* Desktop Nav */}
           <nav className="main-nav hidden md:block" aria-label="Primary">
-            <ul className="list-none flex gap-5 m-0 p-0">
-              <li><a href="#top" className="no-underline text-[#5f7f9f] px-1.5 py-2 rounded-lg font-semibold transition-all hover:text-[#0f5fcc]">Home</a></li>
-              <li><a href="#about" className="no-underline text-[#5f7f9f] px-1.5 py-2 rounded-lg font-semibold transition-all hover:text-[#0f5fcc]">About Us</a></li>
-              <li><a href="#treatments" className="no-underline text-[#5f7f9f] px-1.5 py-2 rounded-lg font-semibold transition-all hover:text-[#0f5fcc]">Treatments</a></li>
-              <li><a href="#testimonials" className="no-underline text-[#5f7f9f] px-1.5 py-2 rounded-lg font-semibold transition-all hover:text-[#0f5fcc]">Testimonials</a></li>
-              <li><a href="#why-us" className="no-underline text-[#5f7f9f] px-1.5 py-2 rounded-lg font-semibold transition-all hover:text-[#0f5fcc]">Why Choose Us</a></li>
-              <li><a href="#faq" className="no-underline text-[#5f7f9f] px-1.5 py-2 rounded-lg font-semibold transition-all hover:text-[#0f5fcc]">FAQ</a></li>
+            <ul className="list-none flex gap-6 m-0 p-0 text-[15px]">
+              <li><a href="#top" className="no-underline text-[#1e73d7] px-1.5 py-2 font-semibold">Home</a></li>
+              <li><a href="#about" className="no-underline text-[#5a6c84] px-1.5 py-2 font-medium hover:text-[#1e73d7] transition-colors">About us</a></li>
+              <li><a href="#treatments" className="no-underline text-[#5a6c84] px-1.5 py-2 font-medium hover:text-[#1e73d7] transition-colors">Treatments</a></li>
+              <li><a href="#testimonials" className="no-underline text-[#5a6c84] px-1.5 py-2 font-medium hover:text-[#1e73d7] transition-colors">Testimonials</a></li>
+              <li><a href="#why-us" className="no-underline text-[#5a6c84] px-1.5 py-2 font-medium hover:text-[#1e73d7] transition-colors">Why Choose Us</a></li>
+              <li><a href="#faq" className="no-underline text-[#5a6c84] px-1.5 py-2 font-medium hover:text-[#1e73d7] transition-colors">FAQ</a></li>
             </ul>
           </nav>
 
           {/* CTA Button */}
           <div className="header-cta flex items-center gap-3">
-            <a href="tel:8220776119" className="btn btn-primary hidden md:inline-flex items-center gap-2 px-[18px] py-2.5 rounded-xl font-bold no-underline bg-[#1c76e4] text-white border-0 shadow-[0_10px_30px_rgba(28,118,228,0.08)] hover:bg-[#0f5fcc] transition-colors">
+            <a href="tel:8220776119" className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-semibold no-underline bg-[#1e73d7] text-white border border-transparent shadow-[0_10px_30px_rgba(30,115,215,0.18)] hover:bg-[#1664c1] transition-colors">
               Get Free Relief Today
             </a>
             {/* Hamburger */}
@@ -73,7 +73,7 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       <div 
-        className={`mobile-menu fixed inset-0 bg-gradient-to-b from-[rgba(18,52,91,0.03)] to-[rgba(255,255,255,0.9)] backdrop-blur-[8px] z-[120] transition-transform duration-350 ease-[cubic-bezier(0.2,0.9,0.2,1)] flex flex-col p-7 ${
+        className={`mobile-menu fixed inset-0 bg-linear-to-b from-[rgba(18,52,91,0.03)] to-[rgba(255,255,255,0.9)] backdrop-blur-sm z-120 transition-transform duration-350 ease-[cubic-bezier(0.2,0.9,0.2,1)] flex flex-col p-7 ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
         aria-hidden={!isOpen}
