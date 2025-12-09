@@ -12,8 +12,8 @@ export default function WhyChooseSection() {
   ]
 
   return (
-    <section id="why-us" className="section why reveal py-16 md:py-20 scroll-mt-[70px]">
-      <div className="container max-w-[1200px] mx-auto px-8">
+    <section id="why-us" className="section why reveal py-16 md:py-20 scroll-mt-[70px] px-5 md:px-[5%]">
+      <div className="container max-w-[1280px] mx-auto">
         <div className="why-grid grid grid-cols-1 md:grid-cols-[1fr_420px] gap-7 items-center">
           <div className="why-left reveal" data-reveal-delay="150">
             <Image 

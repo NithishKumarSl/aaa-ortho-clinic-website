@@ -25,8 +25,8 @@ export default function StepsSection() {
   ]
 
   return (
-    <section className="py-16 md:py-24 bg-secondary/20">
-      <div className="max-w-6xl mx-auto px-4 md:px-8">
+    <section className="py-16 md:py-24 bg-secondary/20 px-5 md:px-[5%]">
+      <div className="max-w-[1280px] mx-auto">
         {/* Header */}
         <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-12 text-center">4-Step Recovery Approach</h2>
 

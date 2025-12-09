@@ -2,71 +2,100 @@ import Image from "next/image"
 
 export default function Footer() {
   return (
-    <footer className="site-footer bg-[#f8fbff] py-7 border-t border-[rgba(20,60,120,0.03)]">
-      <div className="container max-w-[1200px] mx-auto px-8">
-        <div className="footer-grid grid grid-cols-1 md:grid-cols-[1fr_1fr_360px] gap-5 items-start">
+    <footer className="site-footer bg-[#f5f9ff] py-16 px-5 md:px-[5%]">
+      <div className="container max-w-[1280px] mx-auto">
+        <div className="footer-grid grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mb-12">
           <div className="footer-left">
-            <h4 className="text-xl font-bold text-[#12345b] mb-2">AAA ortho clinic</h4>
-            <p className="text-[15px] text-[#444] mb-2">Bone | Joint | Spine | Fracture | Arthritis</p>
-            <p className="muted small text-[13px] text-[#5f7f9f] mb-2">
-              Delivering advanced orthopaedic care to Pattukkottai and surrounding areas.
-            </p>
-            <a href="mailto:aaaorthoclinic@gmail.com" className="muted small text-[13px] text-[#5f7f9f] no-underline hover:text-[#0f5fcc] transition-colors">
-              aaaorthoclinic@gmail.com
-            </a>
-          </div>
-
-          <div className="footer-center">
-            <div className="contact flex items-center gap-2.5 mb-3">
-              <Image src="/material-symbols_call-outline.svg" alt="" width={20} height={20} className="opacity-70" aria-hidden="true" />
-              <a href="tel:+9182207726119" className="text-[#12345b] no-underline font-medium hover:text-[#0f5fcc] transition-colors">
-                82 20 72 61 19
-              </a>
-            </div>
-            <div className="contact flex items-center gap-2.5 mb-4">
-              <Image src="/icon location-light.svg" alt="" width={20} height={20} className="opacity-70" aria-hidden="true" />
-              <a href="mailto:aaaorthoclinic@gmail.com" className="text-[#12345b] no-underline font-medium hover:text-[#0f5fcc] transition-colors">
-                Aaaorthoclinic@gmail.com
-              </a>
-            </div>
-
-            <div className="footer-info-box bg-[#FDFEFF] rounded-[20px] p-6 mt-5 border border-[rgba(18,52,91,0.06)] flex flex-col gap-5">
-              <div className="info-item flex items-center gap-3.5">
-                <Image src="/mdi_clock-outline.svg" alt="Clock icon" width={24} height={24} />
-                <div>
-                  <div className="label text-[13px] font-normal text-[#666] mb-1">Opening Hours</div>
-                  <div className="value text-sm font-semibold text-[#222] leading-[1.4]">10 AM – 2 PM<br />5 PM – 9 PM</div>
-                </div>
+            <div className="footer-card bg-[#FDFEFF] rounded-[20px] p-6 md:p-8 border border-[rgba(18,52,91,0.06)] shadow-[0_4px_12px_rgba(0,0,0,0.04)]">
+              <h4 className="text-4xl font-bold text-[#1e7ce6] mb-2">AAA ortho clinic</h4>
+              <p className="text-[15px] text-[#1e7ce6] mb-3 tracking-wide">BONE | JOINT | SPINE | FRACTURE | ARTHRITIS</p>
+              <p className="text-[15px] text-[#6b7f99] mb-8 leading-relaxed max-w-[480px]">
+                DELIVERING ADVANCED ORTHOPEDIC CARE TO PATTUKKOTTAI AND SURROUNDING AREAS.
+              </p>
+              
+              <div className="contact flex items-center gap-3 mb-3">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="text-[#1e7ce6]">
+                  <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z" fill="currentColor"/>
+                </svg>
+                <a href="tel:+918220776119" className="text-[#1e7ce6] no-underline font-medium hover:underline text-[15px]">
+                  82 20 77 61 19
+                </a>
               </div>
-              <div className="divider h-px bg-[#e0e8f2] m-0"></div>
-              <div className="info-item flex items-center gap-3.5">
-                <Image src="/icon location-light.svg" alt="Location icon" width={24} height={24} />
-                <div>
-                  <div className="label text-[13px] font-normal text-[#666] mb-1">Location</div>
-                  <div className="value text-sm font-semibold text-[#222] leading-[1.4]">Vadashery Road,<br />Pattukkottai</div>
+              <div className="contact flex items-center gap-3 mb-10">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="text-[#1e7ce6]">
+                  <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="currentColor"/>
+                </svg>
+                <a href="mailto:aaaorthoclinic@gmail.com" className="text-[#1e7ce6] no-underline font-medium hover:underline text-[15px]">
+                  aaaorthoclinic@gmail.com
+                </a>
+              </div>
+
+              <div className="footer-info-box bg-[#FDFEFF] rounded-[20px] p-6 md:p-6 m-0 border border-[rgba(18,52,91,0.06)] flex flex-row gap-6 items-center shadow-[0_4px_12px_rgba(0,0,0,0.04)]">
+                <div className="info-item flex items-start gap-3.5 flex-1">
+                  <img src="/mdi_clock-outline.svg" alt="Clock icon" className="w-6 h-6 shrink-0 mt-0.5" />
+                  <div>
+                    <div className="label text-[13px] font-normal text-[#666] mb-1.5 leading-[1.3]">Opening Hours</div>
+                    <div className="value text-[15px] font-semibold text-[#222] leading-[1.4]">11 AM – 2 PM<br />6 PM – 9 PM</div>
+                  </div>
+                </div>
+                <div className="divider w-px h-[50px] bg-[#e0e8f2] shrink-0"></div>
+                <div className="info-item flex items-start gap-3.5 flex-1">
+                  <img src="/icon location-light.svg" alt="Location icon" className="w-6 h-6 shrink-0 mt-0.5" />
+                  <div>
+                    <div className="label text-[13px] font-normal text-[#666] mb-1.5 leading-[1.3]">Location</div>
+                    <div className="value text-[15px] font-semibold text-[#222] leading-[1.4]">Vadachery Road,<br />Pattukkottai</div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
           <div className="footer-right">
-            <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3930.1234567890123!2d79.3156!3d10.4281!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTDCsDI1JzQxLjEiTiA3OcKwMTgnNTYuMiJF!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin" 
-              width="100%" 
-              height="200" 
-              style={{ border: 0, borderRadius: '10px' }}
-              allowFullScreen
-              loading="lazy" 
-              referrerPolicy="no-referrer-when-downgrade"
-              className="map w-full h-[200px] rounded-[10px] shadow-[0_10px_30px_rgba(28,118,228,0.08)]"
-              title="AAA Ortho Clinic Location"
-            />
+            <div className="relative">
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3930.1234567890123!2d79.3157593!3d10.4282661!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b00017013723d4f%3A0x15b957534fe0b48e!2sAAA%20ORTHO%20CLINIC!5e0!3m2!1sen!2sin!4v1735747200000!5m2!1sen!2sin"
+                width="100%" 
+                height="450" 
+                style={{ border: 0, borderRadius: '12px' }}
+                allowFullScreen
+                loading="lazy" 
+                referrerPolicy="no-referrer-when-downgrade"
+                className="map w-full rounded-xl shadow-sm"
+                title="AAA Ortho Clinic Location"
+              />
+              <div className="absolute bottom-4 right-4 flex flex-col gap-2">
+                <a
+                  href="https://www.google.com/maps/place/AAA+ORTHO+CLINIC/@10.4282674,79.3151156,214m/data=!3m2!1e3!4b1!4m6!3m5!1s0x3b00017013723d4f:0x15b957534fe0b48e!8m2!3d10.4282661!4d79.3157593!16s%2Fg%2F11rdbwf2fg?hl=en&entry=ttu&g_ep=EgoyMDI1MTIwMi4wIKXMDSoASAFQAw%3D%3D"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-white text-[#1e7ce6] px-4 py-2 rounded-lg font-medium hover:bg-gray-50 transition-colors shadow-lg flex items-center gap-2 border border-[#1e7ce6]"
+                >
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                  View on Maps
+                </a>
+                <a
+                  href="https://www.google.com/maps/dir/?api=1&destination=10.4282661,79.3157593"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-[#1e7ce6] text-white px-4 py-2 rounded-lg font-medium hover:bg-[#1565c0] transition-colors shadow-lg flex items-center gap-2"
+                >
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"></path>
+                  </svg>
+                  Get Directions
+                </a>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div className="site-bottom flex justify-between pt-4 border-t border-[rgba(20,60,120,0.02)] mt-4.5 text-[13px] text-[#5f7f9f]">
-          <div>© 2025. ALL RIGHTS RESERVED AAA ORTHO CLINIC</div>
-          <div>Designed by Roaming Digitals</div>
+        <div className="site-bottom flex flex-col md:flex-row justify-center items-center pt-6 border-t border-[#d4e4f7] text-[13px] text-[#6b7f99] gap-1">
+          <div>© 2025 - 26 ALL RIGHTS RESERVED AAA ORTHO CLINIC</div>
+          <div className="hidden md:block">|</div>
+          <div>DESIGNED BY ROAMING DIGITAL</div>
         </div>
       </div>
     </footer>

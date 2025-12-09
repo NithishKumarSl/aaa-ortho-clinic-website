@@ -27,8 +27,9 @@ export default function HeroSection() {
   }, [])
 
   return (
-    <section className="hero min-h-[calc(100vh-70px)] py-[30px] px-5 pb-[60px] pt-[80px] md:pt-[90px] bg-[linear-gradient(142deg,#f8fbff,#edf4ff)] flex flex-col md:flex-row items-center gap-[52px] md:gap-[60px] text-center md:text-left md:justify-between md:px-[5%] md:py-[50px] md:pb-[80px] md:min-h-[calc(100vh-80px)]">
-      <div className="hero-content max-w-[540px] w-full text-left">
+    <section className="hero min-h-[calc(100vh-70px)] py-[30px] pb-[60px] pt-[80px] md:pt-[90px] bg-[linear-gradient(142deg,#f8fbff,#edf4ff)] px-5 md:px-[5%] md:py-[50px] md:pb-[80px] md:min-h-[calc(100vh-80px)]">
+      <div className="container max-w-[1280px] mx-auto flex flex-col md:flex-row items-center gap-[52px] md:gap-[60px] text-center md:text-left md:justify-between">
+        <div className="hero-content max-w-[540px] w-full text-left">
         <p className="tagline text-sm md:text-base font-semibold text-[#0a65d9] mb-2 leading-[1.4]">உடம்பை வளர்த்தேன், உயிர் வளர்த்தேன்</p>
         <h4 className="sub-heading text-lg font-medium text-[#444] mb-3 leading-[1.3]">Orthopedic Clinic in Pattukkottai</h4>
         <h1 className="hero-title text-[42px] md:text-[48px] font-extrabold text-[#1c76e4] my-0 mb-5 md:my-3 md:mb-5 leading-[1.2]">
@@ -92,6 +93,7 @@ export default function HeroSection() {
             </div>
           </div>
         </div>
+      </div>
       </div>
     </section>
   )

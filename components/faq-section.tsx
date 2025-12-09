@@ -1,75 +1,81 @@
-"use client"
+"use client";
 
-import { useState } from "react"
+import { useState } from "react";
 
 export default function FaqSection() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null)
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   const faqs = [
     {
       question: "When should I visit an orthopedic doctor for pain?",
-      answer: "If pain persists more than a week or limits daily activities, book a consultation for diagnosis.",
+      answer:
+        "You should consult an orthopedic doctor immediately after any accident, fall, or sudden injury. The initial hours of treatment are very important in the case of fractures or minor injuries.",
     },
     {
-      question: "Can long term knee pain be cured?",
-      answer: "Many knee problems respond well to targeted treatment and physiotherapy; some degenerative conditions are managed to reduce symptoms.",
+      question: "Can long-term knee pain be cured?",
+      answer:
+        "Long-term knee pain is usually caused by osteoarthritis. Lifestyle modifications and proper medication can help manage the condition and slow its progression before it causes severe damage.",
     },
     {
       question: "Is back pain due to posture treatable?",
-      answer: "Yes — posture-related pain often improves with exercise, postural training and targeted care.",
+      answer:
+        "Yes, back pain caused by poor posture is treatable, especially when identified early. However, chronic postural back pain can become difficult to manage if treatment is delayed.",
     },
     {
       question: "Do you treat senior citizens & arthritis patients?",
-      answer: "Yes. We offer tailored treatment plans for older patients focused on safety and function.",
+      answer:
+        "Yes, we treat patients of all age groups, including senior citizens and those with any stage of arthritis.",
     },
     {
       question: "Can I avoid surgery with early treatment?",
-      answer: "Many conditions can be treated conservatively if identified early; surgery is recommended only when necessary.",
+      answer:
+        "It depends on your specific condition. In many cases, early treatment with medications and physiotherapy can delay or even prevent the need for surgery.",
     },
     {
       question: "Do you offer emergency fracture treatment?",
-      answer: "We provide initial fracture care and immobilization; complex cases are referred to specialist centres when required.",
+      answer: "Yes, we provide emergency fracture treatment to the best of our ability.",
     },
-  ]
+  ];
 
   return (
-    <section id="faq" className="section faq reveal py-16 md:py-20 scroll-mt-[70px]">
-      <div className="container max-w-[1200px] mx-auto px-8">
-        <p className="sub-title text-sm tracking-[1px] text-[#0f5fcc] mb-2.5 font-medium">FAQ</p>
-        <h3 className="section-title text-[36px] md:text-4xl font-bold text-[#0f5fcc] mb-10 leading-[1.2]">
+    <section className="py-16 md:py-20 bg-[#f5faff] px-5 md:px-[5%]">
+      <div className="max-w-[1280px] mx-auto">
+        <p className="text-[#0f5fcc] text-sm font-medium mb-2">FAQ</p>
+
+        <h2 className="text-4xl font-bold text-[#0f5fcc] leading-tight mb-10">
           Orthopedic Services We Provide
-        </h3>
-        <div className="faq-grid grid grid-cols-1 md:grid-cols-2 gap-3">
+        </h2>
+
+        <div className="space-y-4">
           {faqs.map((faq, idx) => (
-            <details 
-              key={idx} 
-              className="faq-item bg-white rounded-[10px] p-3 shadow-[0_4px_12px_rgba(18,52,91,0.06)]"
-              open={openIndex === idx}
-              onToggle={(e) => {
-                setOpenIndex(e.currentTarget.open ? idx : null)
-              }}
+            <div
+              key={idx}
+              className={`rounded-xl border border-[#0f5fcc] transition-all ${
+                openIndex === idx ? "bg-white shadow-md" : "bg-transparent"
+              }`}
             >
-              <summary className="cursor-pointer font-bold text-[#12345b] list-none">
-                {faq.question}
-              </summary>
-              <p className="mt-2 mb-0 text-[#5f7f9f] leading-[1.5]">{faq.answer}</p>
-            </details>
+              <button
+                className="w-full text-left px-6 py-5 flex justify-between items-center"
+                onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
+              >
+                <span className="text-[#12345b] font-semibold text-lg">
+                  {faq.question}
+                </span>
+
+                <span className="text-[#0f5fcc] text-2xl font-bold">
+                  {openIndex === idx ? "−" : "+"}
+                </span>
+              </button>
+
+              {openIndex === idx && (
+                <div className="px-6 pb-5 text-[#567189] leading-relaxed">
+                  {faq.answer}
+                </div>
+              )}
+            </div>
           ))}
         </div>
       </div>
-      <style jsx>{`
-        .faq-item summary::-webkit-details-marker {
-          display: none;
-        }
-        .faq-item summary::before {
-          content: '+ ';
-          font-weight: bold;
-          margin-right: 8px;
-        }
-        .faq-item[open] summary::before {
-          content: '− ';
-        }
-      `}</style>
     </section>
-  )
+  );
 }

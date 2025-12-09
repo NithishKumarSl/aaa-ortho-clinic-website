@@ -39,8 +39,8 @@ export default function RecoveryApproach() {
   }
 
   return (
-    <section id="recovery-approach" className="section reveal py-16 md:py-24 bg-linear-to-br from-[#f6fbff] via-[#eef6ff] to-[#f0f7ff] scroll-mt-[70px]">
-      <div className="container max-w-[1200px] mx-auto px-6 md:px-8">
+    <section id="recovery-approach" className="section reveal py-16 md:py-24 bg-linear-to-br from-[#f6fbff] via-[#eef6ff] to-[#f0f7ff] scroll-mt-[70px] px-5 md:px-[5%]">
+      <div className="container max-w-[1280px] mx-auto">
         <div className="w-full bg-white/60 backdrop-blur-sm rounded-3xl shadow-[0_16px_48px_rgba(0,0,0,0.14)] p-8 md:p-12">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0a65d9] mb-8 md:mb-16 text-center md:text-left">
             4-Step Recovery

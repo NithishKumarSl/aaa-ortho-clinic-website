@@ -33,8 +33,8 @@ export default function Navbar() {
   }
 
   return (
-    <header className="site-header fixed top-0 left-0 right-0 z-[100] bg-[rgba(255,255,255,0.95)] backdrop-blur-[8px] border-b border-[rgba(20,60,120,0.06)] shadow-[0_2px_8px_rgba(0,0,0,0.04)]">
-      <div className="container max-w-[1200px] mx-auto px-8">
+    <header className="site-header fixed top-0 left-0 right-0 z-[100] bg-[rgba(255,255,255,0.95)] backdrop-blur-[8px] border-b border-[rgba(20,60,120,0.06)] shadow-[0_2px_8px_rgba(0,0,0,0.04)] px-5 md:px-[5%]">
+      <div className="container max-w-[1280px] mx-auto">
         <div className="header-inner flex items-center justify-between gap-4 py-3.5 min-h-[70px]">
           {/* Logo */}
           <a href="#top" className="brand flex items-center gap-2.5 no-underline text-[#0f5fcc] font-bold">
