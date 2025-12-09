@@ -13,24 +13,28 @@ export default function RecoveryApproach() {
       icon: ClipboardList,
       title: "Consultation &",
       subtitle: "Pain Analysis",
+      pos: { left: "11%", top: "44%" },
     },
     {
       id: 2,
       icon: Activity,
       title: "Clinical Tests /",
       subtitle: "X-Ray (if needed)",
+      pos: { left: "36%", top: "74%" },
     },
     {
       id: 3,
       icon: FileText,
       title: "Personalized",
       subtitle: "Treatment Plan",
+      pos: { left: "59%", top: "46%" },
     },
     {
       id: 4,
       icon: Target,
       title: "Exercises & Follow-Up",
       subtitle: "for Long-Term Relief",
+      pos: { left: "84%", top: "74%" },
     },
   ]
 
@@ -39,109 +43,100 @@ export default function RecoveryApproach() {
   }
 
   return (
-    <section id="recovery-approach" className="section reveal py-16 md:py-24 bg-linear-to-br from-[#f6fbff] via-[#eef6ff] to-[#f0f7ff] scroll-mt-[70px] px-5 md:px-[5%]">
+    <section
+      id="recovery-approach"
+      className="section reveal py-16 md:py-24 bg-linear-to-br from-[#f6fbff] via-[#eef6ff] to-[#f0f7ff] scroll-mt-[70px] px-5 md:px-[5%]"
+    >
       <div className="container max-w-[1280px] mx-auto">
-        <div className="w-full bg-white/60 backdrop-blur-sm rounded-3xl shadow-[0_16px_48px_rgba(0,0,0,0.14)] p-8 md:p-12">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0a65d9] mb-8 md:mb-16 text-center md:text-left">
+        <div className="relative w-full overflow-hidden rounded-3xl border border-[#c7daf4] bg-white/70 backdrop-blur-sm shadow-[0_16px_48px_rgba(0,0,0,0.12)] px-6 py-8 md:px-12 md:py-12">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0a65d9] leading-[1.1] mb-10 md:mb-12">
             4-Step Recovery
             <br />
             Approach
           </h2>
 
-          <div className="relative">
-            {/* SVG Connection Lines - Hidden on mobile, visible on desktop */}
+          {/* Connector canvas */}
+          <div className="relative w-full" style={{ paddingBottom: "46%", minHeight: 320 }}>
             <svg
-              className="hidden md:block absolute inset-0 w-full h-full pointer-events-none"
-              style={{ zIndex: 0 }}
-              viewBox="0 0 1200 600"
+              viewBox="0 0 1200 520"
+              className="absolute inset-0 w-full h-full pointer-events-none"
               preserveAspectRatio="none"
             >
-              {/* Line from Step 1 to Step 2 */}
+              {/* 1 -> 2 */}
               <path
-                d="M 300 150 Q 400 200 350 250"
+                d="M 150 240 C 220 280 300 300 390 360"
                 fill="none"
-                stroke="#8aa6d6"
-                strokeWidth="2"
-                opacity="0.5"
+                stroke="#0f5fcc"
+                strokeWidth="3"
+                opacity="0.65"
               />
-              {/* Line from Step 2 to Step 3 */}
+              {/* 2 -> 3 */}
               <path
-                d="M 500 300 Q 600 280 700 320"
+                d="M 430 380 C 520 410 600 340 700 260"
                 fill="none"
-                stroke="#8aa6d6"
-                strokeWidth="2"
-                opacity="0.5"
+                stroke="#0f5fcc"
+                strokeWidth="3"
+                opacity="0.65"
               />
-              {/* Line from Step 3 to Step 4 */}
+              {/* 3 -> 4 */}
               <path
-                d="M 800 350 Q 900 380 1000 420"
+                d="M 720 260 C 830 300 920 340 1020 380"
                 fill="none"
-                stroke="#8aa6d6"
-                strokeWidth="2"
-                opacity="0.5"
+                stroke="#0f5fcc"
+                strokeWidth="3"
+                opacity="0.65"
               />
             </svg>
 
-            {/* Steps Grid */}
-            <div className="relative grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-x-16 md:gap-y-12 lg:gap-x-24 lg:gap-y-16" style={{ zIndex: 1 }}>
-              {steps.map((step, index) => {
-                const Icon = step.icon
-                const isHovered = hoveredStep === step.id
-                const isClicked = clickedStep === step.id
-                const isActive = isHovered || isClicked
+            {/* Step cards absolute positioned to mirror the reference layout */}
+            {steps.map((step) => {
+              const Icon = step.icon
+              const isActive = hoveredStep === step.id || clickedStep === step.id
 
-                return (
+              return (
+                <div
+                  key={step.id}
+                  onClick={() => handleStepClick(step.id)}
+                  onMouseEnter={() => setHoveredStep(step.id)}
+                  onMouseLeave={() => setHoveredStep(null)}
+                  className="absolute"
+                  style={{
+                    left: step.pos.left,
+                    top: step.pos.top,
+                    transform: "translate(-50%, -50%)",
+                    minWidth: 240,
+                    maxWidth: 270,
+                    zIndex: isActive ? 2 : 1,
+                  }}
+                >
                   <div
-                    key={step.id}
-                    className={`${
-                      index % 2 === 0 ? 'md:justify-self-end' : 'md:justify-self-start'
-                    } ${index === 1 ? 'md:mt-8' : ''} ${index === 3 ? 'md:mt-8' : ''}`}
-                    style={{ maxWidth: '100%', width: '100%' }}
+                    className={`flex items-start gap-3 rounded-xl border-2 bg-white px-5 py-4 shadow-[0_10px_24px_rgba(16,86,204,0.08)] transition-all duration-200 ${
+                      isActive ? "border-[#0a65d9] scale-[1.02]" : "border-[#cfe0ff]"
+                    }`}
                   >
-                    <button
-                      onClick={() => handleStepClick(step.id)}
-                      onMouseEnter={() => setHoveredStep(step.id)}
-                      onMouseLeave={() => setHoveredStep(null)}
-                      className={`w-full px-6 md:px-8 py-5 md:py-6 rounded-2xl border-2 transition-all duration-300 cursor-pointer ${
-                        isActive
-                          ? 'border-[#0a65d9] bg-[#eef6ff] shadow-lg scale-[1.02] md:scale-105 -translate-y-1'
-                          : 'border-[#cfe0ff] bg-white shadow-[0_4px_12px_rgba(18,52,91,0.06)] hover:shadow-lg hover:border-[#8aa6d6]'
+                    <div
+                      className={`mt-0.5 rounded-lg p-2 transition-colors ${
+                        isActive ? "bg-[#0a65d9]" : "bg-[#eef6ff]"
                       }`}
                     >
-                      <div className="flex items-center gap-4">
-                        <div
-                          className={`p-3 rounded-xl transition-colors duration-300 shrink-0 ${
-                            isActive ? 'bg-[#0a65d9]' : 'bg-[#eef6ff]'
-                          }`}
-                        >
-                          <Icon
-                            className={`w-5 h-5 md:w-6 md:h-6 transition-colors duration-300 ${
-                              isActive ? 'text-white' : 'text-[#0a65d9]'
-                            }`}
-                          />
-                        </div>
-                        <div className="text-left">
-                          <div
-                            className={`text-sm md:text-base font-semibold transition-colors duration-300 ${
-                              isActive ? 'text-[#0f5fcc]' : 'text-[#0a65d9]'
-                            }`}
-                          >
-                            {step.title}
-                          </div>
-                          <div
-                            className={`text-sm md:text-base font-semibold transition-colors duration-300 ${
-                              isActive ? 'text-[#0f5fcc]' : 'text-[#0a65d9]'
-                            }`}
-                          >
-                            {step.subtitle}
-                          </div>
-                        </div>
+                      <Icon
+                        className={`w-5 h-5 ${
+                          isActive ? "text-white" : "text-[#0a65d9]"
+                        }`}
+                      />
+                    </div>
+                    <div className="text-left">
+                      <div className="text-sm font-semibold text-[#0a65d9] leading-tight">
+                        {step.title}
                       </div>
-                    </button>
+                      <div className="text-sm font-semibold text-[#0a65d9] leading-tight">
+                        {step.subtitle}
+                      </div>
+                    </div>
                   </div>
-                )
-              })}
-            </div>
+                </div>
+              )
+            })}
           </div>
         </div>
       </div>
