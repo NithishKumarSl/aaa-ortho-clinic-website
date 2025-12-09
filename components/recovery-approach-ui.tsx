@@ -45,18 +45,18 @@ export default function RecoveryApproach() {
   return (
     <section
       id="recovery-approach"
-      className="section reveal py-16 md:py-24 bg-linear-to-br from-[#f6fbff] via-[#eef6ff] to-[#f0f7ff] scroll-mt-[70px] px-5 md:px-[5%]"
+      className="section reveal py-12 md:py-16 bg-[#FDFEFF] scroll-mt-[70px] px-5 md:px-[5%]"
     >
       <div className="container max-w-[1280px] mx-auto">
-        <div className="relative w-full overflow-hidden rounded-3xl border border-[#c7daf4] bg-white/70 backdrop-blur-sm shadow-[0_16px_48px_rgba(0,0,0,0.12)] px-6 py-8 md:px-12 md:py-12">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0a65d9] leading-[1.1] mb-10 md:mb-12">
+        <div className="relative w-full overflow-hidden rounded-2xl border border-[#d8e7ff] bg-[#f6fbff] shadow-[0_12px_36px_rgba(12,60,120,0.10)] px-5 py-6 md:px-8 md:py-8">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#0a65d9] leading-[1.15] mb-6 md:mb-8">
             4-Step Recovery
             <br />
             Approach
           </h2>
 
           {/* Connector canvas */}
-          <div className="relative w-full" style={{ paddingBottom: "46%", minHeight: 320 }}>
+          <div className="relative w-full" style={{ paddingBottom: "34%", minHeight: 260 }}>
             <svg
               viewBox="0 0 1200 520"
               className="absolute inset-0 w-full h-full pointer-events-none"
@@ -64,7 +64,7 @@ export default function RecoveryApproach() {
             >
               {/* 1 -> 2 */}
               <path
-                d="M 150 240 C 220 280 300 300 390 360"
+                d="M 150 230 C 240 250 310 270 390 320"
                 fill="none"
                 stroke="#0f5fcc"
                 strokeWidth="3"
@@ -72,7 +72,7 @@ export default function RecoveryApproach() {
               />
               {/* 2 -> 3 */}
               <path
-                d="M 430 380 C 520 410 600 340 700 260"
+                d="M 430 340 C 520 360 600 310 700 250"
                 fill="none"
                 stroke="#0f5fcc"
                 strokeWidth="3"
@@ -80,7 +80,7 @@ export default function RecoveryApproach() {
               />
               {/* 3 -> 4 */}
               <path
-                d="M 720 260 C 830 300 920 340 1020 380"
+                d="M 720 250 C 830 280 920 320 1020 350"
                 fill="none"
                 stroke="#0f5fcc"
                 strokeWidth="3"
@@ -104,14 +104,14 @@ export default function RecoveryApproach() {
                     left: step.pos.left,
                     top: step.pos.top,
                     transform: "translate(-50%, -50%)",
-                    minWidth: 240,
-                    maxWidth: 270,
+                    minWidth: 220,
+                    maxWidth: 240,
                     zIndex: isActive ? 2 : 1,
                   }}
                 >
                   <div
-                    className={`flex items-start gap-3 rounded-xl border-2 bg-white px-5 py-4 shadow-[0_10px_24px_rgba(16,86,204,0.08)] transition-all duration-200 ${
-                      isActive ? "border-[#0a65d9] scale-[1.02]" : "border-[#cfe0ff]"
+                    className={`flex items-start gap-3 rounded-xl border-2 bg-white px-4 py-3.5 shadow-[0_10px_24px_rgba(16,86,204,0.08)] transition-all duration-200 ${
+                      isActive ? "border-[#0a65d9] scale-[1.02]" : "border-[#d8e7ff]"
                     }`}
                   >
                     <div

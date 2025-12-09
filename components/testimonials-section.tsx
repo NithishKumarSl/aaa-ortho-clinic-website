@@ -1,138 +1,141 @@
-"use client"
+// Improved, polished, production-ready TestimonialsSection
+// Clean layout, stricter UI/UX hierarchy, smoother motion, better spacing
 
-import { useEffect, useRef } from "react"
+"use client";
+
+import { useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 
 export default function TestimonialsSection() {
-  const carouselRef = useRef<HTMLDivElement>(null)
+  const carouselRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    const carousel = carouselRef.current
-    if (!carousel) return
+    const carousel = carouselRef.current;
+    if (!carousel) return;
 
-    const scrollSpeed = 1
-    let interval: NodeJS.Timeout | null = null
-    let isPaused = false
+    const scrollSpeed = 1.1;
+    let interval: ReturnType<typeof setInterval> | null = null;
+    let isPaused = false;
 
     const autoScroll = () => {
-      if (isPaused || !carousel) return
-      
-      carousel.scrollLeft += scrollSpeed
+      if (isPaused || !carousel) return;
+      carousel.scrollLeft += scrollSpeed;
 
-      // Loop back to start when end is reached
-      if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 2) {
-        carousel.scrollLeft = 0
+      const halfWidth = carousel.scrollWidth / 2;
+      if (carousel.scrollLeft >= halfWidth) {
+        carousel.scrollLeft = carousel.scrollLeft - halfWidth;
       }
-    }
+    };
 
-    const startCarousel = () => {
-      if (!interval) {
-        interval = setInterval(autoScroll, 20)
-      }
-    }
+    const start = () => {
+      if (!interval) interval = setInterval(autoScroll, 18);
+    };
 
-    const stopCarousel = () => {
+    const stop = () => {
       if (interval) {
-        clearInterval(interval)
-        interval = null
+        clearInterval(interval);
+        interval = null;
       }
-    }
+    };
 
-    // Start carousel
-    startCarousel()
+    start();
 
-    // Pause on hover
-    const handleMouseEnter = () => {
-      isPaused = true
-      stopCarousel()
-    }
+    const handleEnter = () => {
+      isPaused = true;
+      stop();
+    };
+    const handleLeave = () => {
+      isPaused = false;
+      start();
+    };
 
-    const handleMouseLeave = () => {
-      isPaused = false
-      startCarousel()
-    }
-
-    // Pause on touch (mobile)
-    const handleTouchStart = () => {
-      isPaused = true
-      stopCarousel()
-    }
-
-    const handleTouchEnd = () => {
-      setTimeout(() => {
-        isPaused = false
-        startCarousel()
-      }, 2000)
-    }
-
-    carousel.addEventListener('mouseenter', handleMouseEnter)
-    carousel.addEventListener('mouseleave', handleMouseLeave)
-    carousel.addEventListener('touchstart', handleTouchStart)
-    carousel.addEventListener('touchend', handleTouchEnd)
+    carousel.addEventListener("mouseenter", handleEnter);
+    carousel.addEventListener("mouseleave", handleLeave);
+    carousel.addEventListener("touchstart", handleEnter);
+    carousel.addEventListener("touchend", handleLeave);
 
     return () => {
-      stopCarousel()
-      carousel.removeEventListener('mouseenter', handleMouseEnter)
-      carousel.removeEventListener('mouseleave', handleMouseLeave)
-      carousel.removeEventListener('touchstart', handleTouchStart)
-      carousel.removeEventListener('touchend', handleTouchEnd)
-    }
-  }, [])
+      stop();
+      carousel.removeEventListener("mouseenter", handleEnter);
+      carousel.removeEventListener("mouseleave", handleLeave);
+      carousel.removeEventListener("touchstart", handleEnter);
+      carousel.removeEventListener("touchend", handleLeave);
+    };
+  }, []);
 
   const testimonials = [
     {
-      quote: "Knee pain reduced in 2 visits doctor explained everything clearly.",
-      author: "patient 1",
+      quote: "Knee pain reduced in 2 visits, doctor explained everything clearly.",
+      author: "Patient 1",
     },
     {
-      quote: "Back pain improved quickly, thanks to the clear guidance.",
-      author: "patient 2",
+      quote: "Back pain improved quickly with clear guidance.",
+      author: "Patient 2",
     },
     {
-      quote: "Doctor explained every detail, very professional.",
-      author: "patient 3",
+      quote: "Doctor explained every detail—very professional.",
+      author: "Patient 3",
     },
     {
       quote: "Friendly staff and comfortable environment.",
-      author: "patient 4",
+      author: "Patient 4",
     },
-  ]
+  ];
+
+  // Duplicate items to allow seamless infinite scroll without visible jump
+  const loopedTestimonials = [...testimonials, ...testimonials];
 
   return (
-    <section id="testimonials" className="section testimonials reveal bg-[#f3f7fc] py-20 scroll-mt-[70px] px-5 md:px-[5%]">
-      <div className="container max-w-[1280px] mx-auto">
-        <p className="sub-title text-sm tracking-[1px] text-[#0f5fcc] mb-2.5 font-medium">TESTIMONIALS</p>
-        <h3 className="section-title text-[36px] md:text-4xl font-bold text-[#0f5fcc] mb-10 leading-[1.2] text-left">
-          Real Patients.<br />Real Results.
+    <section
+      id="testimonials"
+      className="bg-[#f3f7fc] py-16 px-5 md:px-[5%] scroll-mt-[70px]"
+    >
+      <div className="max-w-[1280px] mx-auto w-full">
+        {/* Section Header */}
+        <p className="text-sm tracking-wide text-[#0f5fcc] font-semibold mb-2 uppercase">
+          Testimonials
+        </p>
+
+        <h3 className="text-[32px] md:text-[38px] font-bold text-[#0f5fcc] leading-tight mb-10">
+          Real Patients. <br /> Real Results.
         </h3>
-        <div className="testimonial-wrapper w-full overflow-hidden py-2.5">
-          <div 
+
+        <div
+          className="relative w-full overflow-hidden py-3"
+          style={{
+            maskImage:
+              "linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%)",
+            WebkitMaskImage:
+              "linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%)",
+          }}
+        >
+          <div
             ref={carouselRef}
-            className="testimonial-row flex gap-7 pl-1 overflow-x-auto scroll-smooth scroll-snap-x-mandatory [-webkit-overflow-scrolling:touch] [scrollbar-width:none] [scroll-padding-left:4px]"
-            style={{
-              scrollSnapType: 'x mandatory',
-            }}
+            className="flex gap-6 md:gap-7 pl-1 overflow-x-auto scroll-smooth scroll-snap-x-mandatory [-webkit-overflow-scrolling:touch] [scrollbar-width:none]"
+            style={{ scrollSnapType: "x mandatory" }}
           >
-            {testimonials.map((testimonial, idx) => (
-              <blockquote 
-                key={idx} 
-                className="testimonial-card fade-slide min-w-[300px] max-w-[320px] scroll-snap-align-start bg-white p-7 rounded-[22px] border-2 border-[#0f5fcc] text-[#0f5fcc] text-base leading-[1.5] shadow-[0_4px_12px_rgba(18,52,91,0.06)] flex-shrink-0 opacity-0 translate-y-6 animate-[fadeSlide_0.8s_ease_forwards]"
-                style={{
-                  animationDelay: `${0.1 + idx * 0.15}s`,
-                }}
+             {loopedTestimonials.map((t, i) => (
+              <motion.blockquote
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.1 + i * 0.15, ease: "easeOut" }}
+                 className="bg-white border border-[#0f5fcc] rounded-2xl shadow-[0_10px_24px_rgba(15,95,204,0.08)] p-6 md:p-7 min-w-[260px] max-w-[300px] scroll-snap-align-start shrink-0 text-[#0f5fcc]"
               >
-                <div className="avatar w-12 h-12 bg-[#dedede] rounded-xl mb-3.5"></div>
-                <p className="m-0 mb-2">{testimonial.quote}</p>
-                <footer className="mt-4.5 text-sm text-[#9b9b9b]">' {testimonial.author} "</footer>
-              </blockquote>
+                <div className="w-12 h-12 rounded-xl bg-[#d8e4f8] mb-4" />
+                <p className="text-base leading-relaxed mb-3">{t.quote}</p>
+                <footer className="text-sm text-[#7c8bb0] font-medium">— {t.author}</footer>
+              </motion.blockquote>
             ))}
           </div>
         </div>
       </div>
+
       <style jsx>{`
         .testimonial-row::-webkit-scrollbar {
           display: none;
         }
       `}</style>
     </section>
-  )
+  );
 }
