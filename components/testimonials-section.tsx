@@ -67,18 +67,22 @@ export default function TestimonialsSection() {
     {
       quote: "Knee pain reduced in 2 visits, doctor explained everything clearly.",
       author: "Patient 1",
+      img: "/Testimonialsimg/t1.png",
     },
     {
       quote: "Back pain improved quickly with clear guidance.",
       author: "Patient 2",
+      img: "/Testimonialsimg/t2.png",
     },
     {
       quote: "Doctor explained every detail—very professional.",
       author: "Patient 3",
+      img: "/Testimonialsimg/t3.png",
     },
     {
       quote: "Friendly staff and comfortable environment.",
       author: "Patient 4",
+      img: "/Testimonialsimg/t4.png",
     },
   ];
 
@@ -122,7 +126,12 @@ export default function TestimonialsSection() {
                 transition={{ duration: 0.5, delay: 0.1 + i * 0.15, ease: "easeOut" }}
                  className="bg-white border border-[#0f5fcc] rounded-2xl shadow-[0_10px_24px_rgba(15,95,204,0.08)] p-6 md:p-7 min-w-[260px] max-w-[300px] scroll-snap-align-start shrink-0 text-[#0f5fcc]"
               >
-                <div className="w-12 h-12 rounded-xl bg-[#d8e4f8] mb-4" />
+                <img
+                  src={t.img}
+                  alt={`${t.author} testimonial`}
+                  className="w-12 h-12 rounded-xl object-cover mb-4"
+                  loading="lazy"
+                />
                 <p className="text-base leading-relaxed mb-3">{t.quote}</p>
                 <footer className="text-sm text-[#7c8bb0] font-medium">— {t.author}</footer>
               </motion.blockquote>
