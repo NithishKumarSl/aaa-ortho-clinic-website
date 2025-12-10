@@ -95,7 +95,16 @@ export default function Footer() {
         <div className="site-bottom flex flex-col md:flex-row justify-center items-center pt-6 border-t border-[#d4e4f7] text-[13px] text-[#6b7f99] gap-1">
           <div>© 2025 - 26 ALL RIGHTS RESERVED AAA ORTHO CLINIC</div>
           <div className="hidden md:block">|</div>
-          <div>DESIGNED BY ROAMING DIGITAL</div>
+          <div>
+            <a 
+              href="https://roamingdigitals.in/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-[#6b7f99] hover:text-[#1e7ce6] transition-colors no-underline hover:underline"
+            >
+              DESIGNED BY ROAMING DIGITAL
+            </a>
+          </div>
         </div>
       </div>
     </footer>
