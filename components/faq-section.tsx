@@ -38,37 +38,38 @@ export default function FaqSection() {
   ];
 
   return (
-    <section id="faq" className="py-16 md:py-20 bg-[#f5faff] px-5 md:px-[5%]">
+    <section id="faq" className="py-12 sm:py-16 md:py-20 bg-[#f5faff] px-4 sm:px-5 md:px-[5%] scroll-mt-[70px]">
       <div className="max-w-[1280px] mx-auto">
-        <p className="text-[#0f5fcc] text-sm font-medium mb-2">FAQ</p>
+        <p className="text-[#0a65d9] text-xs sm:text-sm font-semibold mb-2 sm:mb-3 uppercase tracking-wide">FAQ</p>
 
-        <h2 className="text-4xl font-bold text-[#0f5fcc] leading-tight mb-10">
-          Orthopedic Services We Provide
+        <h2 className="text-[28px] sm:text-[32px] md:text-4xl font-bold text-[#0a65d9] leading-tight mb-6 sm:mb-8 md:mb-10">
+          Frequently Asked Questions
         </h2>
 
-        <div className="space-y-4">
+        <div className="space-y-3 sm:space-y-4">
           {faqs.map((faq, idx) => (
             <div
               key={idx}
-              className={`rounded-xl border border-[#0f5fcc] transition-all ${
-                openIndex === idx ? "bg-white shadow-md" : "bg-transparent"
+              className={`rounded-xl sm:rounded-2xl border-2 border-[#d8e7ff] transition-all ${
+                openIndex === idx ? "bg-white shadow-[0_8px_24px_rgba(10,101,217,0.12)] border-[#0a65d9]" : "bg-transparent hover:border-[#a8c8ff]"
               }`}
             >
               <button
-                className="w-full text-left px-6 py-5 flex justify-between items-center"
+                className="w-full text-left px-4 py-4 sm:px-6 sm:py-5 flex justify-between items-start gap-4 active:scale-[0.99]"
                 onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
+                aria-expanded={openIndex === idx}
               >
-                <span className="text-[#12345b] font-semibold text-lg">
+                <span className="text-[#12345b] font-semibold text-sm sm:text-base md:text-lg leading-relaxed flex-1">
                   {faq.question}
                 </span>
 
-                <span className="text-[#0f5fcc] text-2xl font-bold">
+                <span className={`text-[#0a65d9] text-xl sm:text-2xl font-bold shrink-0 transition-transform duration-200 ${openIndex === idx ? 'rotate-0' : ''}`}>
                   {openIndex === idx ? "−" : "+"}
                 </span>
               </button>
 
               {openIndex === idx && (
-                <div className="px-6 pb-5 text-[#567189] leading-relaxed">
+                <div className="px-4 pb-4 sm:px-6 sm:pb-5 text-sm sm:text-base text-[#567189] leading-relaxed border-t border-[#e0e8f2] mt-2 pt-4">
                   {faq.answer}
                 </div>
               )}
