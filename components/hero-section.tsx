@@ -79,56 +79,35 @@ export default function HeroSection() {
         </div>
 
         {/* IMAGE + DOCTOR CARD */}
-{/* Mobile View - Separate Structure */}
-<div className="image-wrapper-mobile md:hidden w-full max-w-[400px] mx-auto rounded-xl overflow-hidden relative order-1 mt-8">
-  <div className="parallax-layer relative rounded-xl overflow-hidden will-change-transform">
-    
-    {/* Background Image */}
-    <img
-      ref={parallaxImgRefMobile}
-      src="/images/hero-banner.jpg"
-      alt="Dr. Aravind Ravichandran"
-      className="w-full h-auto block object-cover will-change-transform transition-transform duration-100 ease-out"
-      style={{ transform: 'scale(1.05)' }}
-      loading="eager"
-    />
+        {/* Mobile View - Separate Structure */}
+        <div className="image-wrapper-mobile md:hidden w-full max-w-[400px] mx-auto rounded-xl overflow-hidden relative order-1 mt-8">
+          <div className="parallax-layer relative rounded-xl overflow-hidden will-change-transform">
+            {/* Background Image */}
+            <img
+              ref={parallaxImgRefMobile}
+              src="/images/hero-banner.jpg"
+              alt="Dr. Aravind Ravichandran"
+              className="w-full h-auto block object-cover will-change-transform transition-transform duration-100 ease-out"
+              style={{ transform: 'scale(1.05)' }}
+              loading="eager"
+            />
 
-    {/* --- FIXED: PERFECTLY CENTERED DOCTOR CARD --- */}
-    <div className="
-      doctor-card-mobile 
-      absolute 
-      bottom-4 
-      left-[95%] 
-      -translate-x-1/2 
-      bg-[#FDFEFF] 
-      p-3 
-      rounded-xl 
-      flex 
-      items-center 
-      gap-3 
-      shadow-[0_8px_24px_rgba(0,0,0,0.12)]
-      animate-[float_6.8s_ease-in-out_infinite]
-      w-[calc(100%-32px)]
-      max-w-[320px]
-    ">
-      {/* Experience Badge */}
-      <div className="bg-[#eaf3ff] w-[48px] h-[48px] rounded-[10px] flex flex-col items-center justify-center shrink-0">
-        <div className="text-[18px] font-extrabold text-[#0a65d9] leading-none">5+</div>
-        <div className="text-[9px] font-semibold text-[#0a65d9] leading-none mt-0.5">Exp</div>
-      </div>
+            {/* Mobile Doctor Card - Centered (using left-[95%] to account for image scale transform) */}
+            <div className="doctor-card-mobile absolute bottom-4 left-[95%] -translate-x-1/2 bg-[#FDFEFF] p-3 rounded-xl flex items-center gap-3 shadow-[0_8px_24px_rgba(0,0,0,0.12)] animate-[float_6.8s_ease-in-out_infinite] w-[calc(100%-32px)] max-w-[320px]">
+              {/* Experience Badge */}
+              <div className="exp-badge bg-[#eaf3ff] w-[48px] h-[48px] rounded-[10px] flex flex-col items-center justify-center shrink-0">
+                <div className="num text-[18px] font-extrabold text-[#0a65d9] leading-none">5+</div>
+                <div className="exp text-[9px] font-semibold text-[#0a65d9] leading-none mt-0.5">Exp</div>
+              </div>
 
-      {/* Doctor Info */}
-      <div className="flex-1 min-w-0 overflow-hidden text-left">
-        <div className="text-[14px] font-bold text-[#222] leading-[1.2]">
-          Dr. Aravind Ravichandran
+              {/* Doctor Info */}
+              <div className="doc-info flex-1 min-w-0 overflow-hidden text-left">
+                <div className="name text-[14px] font-bold text-[#222] leading-[1.2]">Dr. Aravind Ravichandran</div>
+                <div className="qual text-[12px] font-medium text-[#666] leading-none mt-0.5">M.S. Orthopaedics</div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div className="text-[12px] font-medium text-[#666] leading-none mt-0.5">
-          M.S. Orthopaedics
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 
 
         {/* Desktop/Tablet View - Separate Structure */}
