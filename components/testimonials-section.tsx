@@ -92,30 +92,30 @@ export default function TestimonialsSection() {
   return (
     <section
       id="testimonials"
-      className="bg-[#f3f7fc] py-12 sm:py-16 px-4 sm:px-5 md:px-[5%] scroll-mt-[70px]"
+      className="bg-[#f3f7fc] py-12 sm:py-16 px-5 sm:px-6 md:px-[5%] scroll-mt-[70px]"
     >
       <div className="max-w-[1280px] mx-auto w-full">
         {/* Section Header */}
-        <p className="text-xs sm:text-sm tracking-wide text-[#0a65d9] font-semibold mb-2 sm:mb-3 uppercase">
+        <p className="text-xs sm:text-sm tracking-wide text-[#0a65d9] font-semibold mb-3 sm:mb-4 uppercase">
           Testimonials
         </p>
 
-        <h3 className="text-[28px] sm:text-[32px] md:text-[38px] font-bold text-[#0a65d9] leading-tight mb-6 sm:mb-8 md:mb-10">
+        <h3 className="text-[32px] sm:text-[36px] md:text-[38px] font-bold text-[#0a65d9] leading-tight mb-10 sm:mb-12 md:mb-10 text-left">
           Real Patients. <br className="hidden sm:block" /> Real Results.
         </h3>
 
         <div
-          className="relative w-full overflow-hidden py-3"
+          className="relative w-full overflow-hidden py-4 -mx-5 sm:-mx-6 md:mx-0"
           style={{
             maskImage:
-              "linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%)",
+              "linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)",
             WebkitMaskImage:
-              "linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%)",
+              "linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)",
           }}
         >
           <div
             ref={carouselRef}
-            className="flex gap-4 sm:gap-6 md:gap-7 pl-1 overflow-x-auto scroll-smooth scroll-snap-x-mandatory [-webkit-overflow-scrolling:touch] [scrollbar-width:none]"
+            className="flex gap-5 sm:gap-6 md:gap-7 pl-5 sm:pl-6 md:pl-1 overflow-x-auto scroll-smooth scroll-snap-x-mandatory [-webkit-overflow-scrolling:touch] [scrollbar-width:none]"
             style={{ scrollSnapType: "x mandatory" }}
           >
              {loopedTestimonials.map((t, i) => (
@@ -124,16 +124,16 @@ export default function TestimonialsSection() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 + i * 0.15, ease: "easeOut" }}
-                 className="bg-white border-2 border-[#d8e7ff] rounded-xl sm:rounded-2xl shadow-[0_10px_24px_rgba(15,95,204,0.08)] p-5 sm:p-6 md:p-7 min-w-[240px] sm:min-w-[260px] max-w-[300px] scroll-snap-align-start shrink-0 text-[#0a65d9] hover:border-[#0a65d9] transition-colors"
+                 className="bg-white border-2 border-[#d8e7ff] rounded-xl sm:rounded-2xl shadow-[0_10px_24px_rgba(15,95,204,0.08)] p-6 sm:p-6 md:p-7 min-w-[280px] sm:min-w-[300px] max-w-[300px] scroll-snap-align-start shrink-0 text-[#0a65d9] hover:border-[#0a65d9] transition-colors"
               >
                 <img
                   src={t.img}
                   alt={`${t.author} testimonial`}
-                  className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl object-cover mb-3 sm:mb-4"
+                  className="w-14 h-14 sm:w-14 sm:h-14 rounded-xl sm:rounded-xl object-cover mb-4 sm:mb-5"
                   loading="lazy"
                 />
-                <p className="text-sm sm:text-base leading-relaxed mb-3">{t.quote}</p>
-                <footer className="text-xs sm:text-sm text-[#7c8bb0] font-medium">— {t.author}</footer>
+                <p className="text-base sm:text-base leading-relaxed mb-4">{t.quote}</p>
+                <footer className="text-sm sm:text-sm text-[#7c8bb0] font-medium">— {t.author}</footer>
               </motion.blockquote>
             ))}
           </div>

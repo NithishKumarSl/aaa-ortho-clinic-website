@@ -67,23 +67,23 @@ export default function RecoveryApproach() {
 
   const renderCard = (step: typeof steps[number], isActive: boolean) => (
     <div
-      className={`flex items-start gap-2.5 sm:gap-3 rounded-lg sm:rounded-xl border-2 bg-white px-3 py-3 sm:px-4 sm:py-3.5 shadow-[0_10px_24px_rgba(16,86,204,0.08)] transition-all duration-200 active:scale-[0.98] ${
+      className={`flex items-center gap-2.5 sm:gap-3 sm:items-start rounded-lg sm:rounded-xl border-2 bg-white px-4 py-4 sm:px-4 sm:py-3.5 shadow-[0_10px_24px_rgba(16,86,204,0.08)] transition-all duration-200 active:scale-[0.98] w-full h-[90px] sm:h-auto sm:min-h-0 ${
         isActive ? "border-[#0a65d9] scale-[1.02]" : "border-[#d8e7ff]"
       }`}
     >
       <div
-        className={`mt-0.5 rounded-lg p-1.5 sm:p-2 transition-colors shrink-0 ${
+        className={`rounded-lg p-2 sm:p-2 transition-colors shrink-0 ${
           isActive ? "bg-[#0a65d9]" : "bg-[#eef6ff]"
         }`}
       >
         <img
           src={isActive && step.iconHoverSrc ? step.iconHoverSrc : step.iconSrc}
           alt={step.alt}
-          className="w-4 h-4 sm:w-5 sm:h-5 object-contain"
+          className="w-5 h-5 sm:w-5 sm:h-5 object-contain"
           loading="lazy"
         />
       </div>
-      <div className="text-left flex-1 min-w-0">
+      <div className="text-left flex-1 min-w-0 flex flex-col justify-center sm:justify-start">
         <div className="text-xs sm:text-sm font-semibold text-[#0a65d9] leading-tight">
           {step.title}
         </div>
@@ -101,18 +101,18 @@ export default function RecoveryApproach() {
     >
       <div className="container max-w-[1280px] mx-auto">
         <div className="relative w-full overflow-hidden rounded-xl sm:rounded-2xl border border-[#d8e7ff] bg-[#f6fbff] shadow-[0_12px_36px_rgba(12,60,120,0.10)] px-4 py-5 sm:px-5 sm:py-6 md:px-8 md:py-8">
-          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-[#0a65d9] leading-[1.15] mb-5 sm:mb-6 md:mb-8">
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-[#0a65d9] leading-[1.15] mb-8 sm:mb-10 md:mb-8 text-left">
             4-Step Recovery
             <br />
             Approach
           </h2>
 
-{/* Mobile (stacked) */}
-<div className="lg:hidden flex flex-col px-2 sm:px-4">
+ {/* Mobile (stacked) */}
+ <div className="lg:hidden flex flex-col items-center gap-0">
           {steps.map((step, idx) => {
             const isActive = hoveredStep === step.id || clickedStep === step.id
             return (
-              <div key={step.id} className="relative">
+              <div key={step.id} className="relative w-full max-w-[320px] sm:max-w-[360px] flex flex-col items-center">
                 <div
                   onClick={() => handleStepClick(step.id)}
                   onMouseEnter={() => setHoveredStep(step.id)}
@@ -122,7 +122,7 @@ export default function RecoveryApproach() {
                   {renderCard(step, isActive)}
                 </div>
                 {idx < steps.length - 1 && (
-                  <div className="relative w-full h-12 sm:h-16 -mt-1 -mb-1">
+                  <div className="relative w-full h-12 sm:h-16 -mt-1 -mb-1 flex items-center justify-center">
                     <svg
                       className="absolute w-full h-full"
                       viewBox="0 0 100 70"
