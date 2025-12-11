@@ -3,18 +3,20 @@
 import { useEffect, useRef } from "react"
 
 export default function HeroSection() {
-  const parallaxImgRef = useRef<HTMLImageElement>(null)
+  const parallaxImgRefMobile = useRef<HTMLImageElement>(null)
+  const parallaxImgRefDesktop = useRef<HTMLImageElement>(null)
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      if (parallaxImgRef.current) {
+      // Apply parallax to desktop image (mobile doesn't need parallax on touch devices)
+      if (parallaxImgRefDesktop.current && window.innerWidth >= 768) {
         const { clientX, clientY } = e
         const { innerWidth, innerHeight } = window
         
         const xPos = (clientX / innerWidth - 0.5) * 20
         const yPos = (clientY / innerHeight - 0.5) * 20
         
-        parallaxImgRef.current.style.transform = `translate(${xPos}px, ${yPos}px) scale(1.1)`
+        parallaxImgRefDesktop.current.style.transform = `translate(${xPos}px, ${yPos}px) scale(1.1)`
       }
     }
 
@@ -77,27 +79,80 @@ export default function HeroSection() {
         </div>
 
         {/* IMAGE + DOCTOR CARD */}
-        <div className="image-wrapper w-full max-w-[400px] sm:max-w-[480px] md:max-w-[580px] md:w-1/2 h-auto mx-auto md:mx-0 rounded-xl sm:rounded-2xl overflow-hidden relative shrink-0 order-1 md:order-2 mt-8 sm:mt-6 md:mt-0 self-center md:self-auto">
-          <div className="parallax-layer will-change-transform rounded-xl sm:rounded-2xl overflow-hidden relative">
+{/* Mobile View - Separate Structure */}
+<div className="image-wrapper-mobile md:hidden w-full max-w-[400px] mx-auto rounded-xl overflow-hidden relative order-1 mt-8">
+  <div className="parallax-layer relative rounded-xl overflow-hidden will-change-transform">
+    
+    {/* Background Image */}
+    <img
+      ref={parallaxImgRefMobile}
+      src="/images/hero-banner.jpg"
+      alt="Dr. Aravind Ravichandran"
+      className="w-full h-auto block object-cover will-change-transform transition-transform duration-100 ease-out"
+      style={{ transform: 'scale(1.05)' }}
+      loading="eager"
+    />
+
+    {/* --- FIXED: PERFECTLY CENTERED DOCTOR CARD --- */}
+    <div className="
+      doctor-card-mobile 
+      absolute 
+      bottom-4 
+      left-[95%] 
+      -translate-x-1/2 
+      bg-[#FDFEFF] 
+      p-3 
+      rounded-xl 
+      flex 
+      items-center 
+      gap-3 
+      shadow-[0_8px_24px_rgba(0,0,0,0.12)]
+      animate-[float_6.8s_ease-in-out_infinite]
+      w-[calc(100%-32px)]
+      max-w-[320px]
+    ">
+      {/* Experience Badge */}
+      <div className="bg-[#eaf3ff] w-[48px] h-[48px] rounded-[10px] flex flex-col items-center justify-center shrink-0">
+        <div className="text-[18px] font-extrabold text-[#0a65d9] leading-none">5+</div>
+        <div className="text-[9px] font-semibold text-[#0a65d9] leading-none mt-0.5">Exp</div>
+      </div>
+
+      {/* Doctor Info */}
+      <div className="flex-1 min-w-0 overflow-hidden text-left">
+        <div className="text-[14px] font-bold text-[#222] leading-[1.2]">
+          Dr. Aravind Ravichandran
+        </div>
+        <div className="text-[12px] font-medium text-[#666] leading-none mt-0.5">
+          M.S. Orthopaedics
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+        {/* Desktop/Tablet View - Separate Structure */}
+        <div className="image-wrapper-desktop hidden md:block w-full max-w-[480px] lg:max-w-[580px] lg:w-1/2 h-auto mx-auto lg:mx-0 rounded-2xl overflow-hidden relative shrink-0 order-2 self-auto">
+          <div className="parallax-layer will-change-transform rounded-2xl overflow-hidden relative">
             <img 
-              ref={parallaxImgRef}
+              ref={parallaxImgRefDesktop}
               src="/images/hero-banner.jpg" 
               alt="Dr. Aravind Ravichandran" 
               className="w-full h-auto block will-change-transform transition-transform duration-100 ease-out"
               style={{ transform: 'scale(1.1)' }}
               loading="eager"
             />
-            <div className="doctor-card absolute bottom-4 sm:bottom-6 md:bottom-[38px] left-4 sm:left-6 md:left-[38px] bg-[#FDFEFF] p-3 sm:p-4 md:p-[18px_30px] rounded-xl sm:rounded-2xl flex items-center gap-3 sm:gap-4 md:gap-6 shadow-[0_8px_24px_rgba(0,0,0,0.12)] sm:shadow-[0_16px_48px_rgba(0,0,0,0.14)] animate-[float_6.8s_ease-in-out_infinite] max-w-[calc(100%-32px)] sm:max-w-[320px]">
-              <div className="exp-badge bg-[#eaf3ff] w-[48px] h-[48px] sm:w-[66px] sm:h-[66px] md:w-[70px] md:h-[70px] rounded-[10px] sm:rounded-[14px] flex flex-col items-center justify-center shrink-0">
-                <div className="num text-[18px] sm:text-[26px] md:text-[28px] font-extrabold text-[#0a65d9] leading-none">5+</div>
-                <div className="exp text-[9px] sm:text-xs md:text-[13px] font-semibold text-[#0a65d9] mt-0.5 leading-none">Exp</div>
+            {/* Desktop Doctor Card - Original Position */}
+            <div className="doctor-card-desktop absolute bottom-6 lg:bottom-[38px] left-6 lg:left-[38px] bg-[#FDFEFF] p-4 lg:p-[18px_30px] rounded-2xl flex items-center gap-4 lg:gap-6 shadow-[0_16px_48px_rgba(0,0,0,0.14)] animate-[float_6.8s_ease-in-out_infinite] max-w-[320px]">
+              <div className="exp-badge bg-[#eaf3ff] w-[66px] h-[66px] lg:w-[70px] lg:h-[70px] rounded-[14px] flex flex-col items-center justify-center shrink-0">
+                <div className="num text-[26px] lg:text-[28px] font-extrabold text-[#0a65d9] leading-none">5+</div>
+                <div className="exp text-xs lg:text-[13px] font-semibold text-[#0a65d9] mt-0.5 leading-none">Exp</div>
               </div>
               <div className="doc-info min-w-0 flex-1 overflow-hidden">
-                <div className="name text-[14px] sm:text-[18.5px] md:text-[19px] font-bold text-[#222] m-0 leading-[1.2] truncate">Dr. Aravind Ravichandran</div>
-                <div className="qual text-[12px] sm:text-[14.5px] md:text-[15px] font-medium text-[#666] mt-0.5 sm:mt-1 leading-none truncate">M.S. Orthopaedics</div>
+                <div className="name text-[18.5px] lg:text-[19px] font-bold text-[#222] m-0 leading-[1.2] truncate">Dr. Aravind Ravichandran</div>
+                <div className="qual text-[14.5px] lg:text-[15px] font-medium text-[#666] mt-1 leading-none truncate">M.S. Orthopaedics</div>
               </div>
             </div>
-
           </div>
         </div>
       </div>
