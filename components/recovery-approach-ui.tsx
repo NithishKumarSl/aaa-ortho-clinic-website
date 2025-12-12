@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Image from "next/image"
 
 export default function RecoveryApproach() {
   const [hoveredStep, setHoveredStep] = useState<number | null>(null)
@@ -76,9 +77,11 @@ export default function RecoveryApproach() {
           isActive ? "bg-[#0a65d9]" : "bg-[#eef6ff]"
         }`}
       >
-        <img
+        <Image
           src={isActive && step.iconHoverSrc ? step.iconHoverSrc : step.iconSrc}
           alt={step.alt}
+          width={20}
+          height={20}
           className="w-5 h-5 sm:w-5 sm:h-5 object-contain"
           loading="lazy"
         />

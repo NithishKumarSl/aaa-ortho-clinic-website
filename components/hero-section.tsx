@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useRef } from "react"
+import Image from "next/image"
 
 export default function HeroSection() {
   const parallaxImgRefMobile = useRef<HTMLImageElement>(null)
@@ -53,7 +54,7 @@ export default function HeroSection() {
               href="tel:8220776119" 
               className="call text-[#0a65d9] font-semibold text-base sm:text-base flex items-center justify-center gap-2.5 no-underline whitespace-nowrap py-4 sm:py-0 px-6 sm:px-0 rounded-xl sm:rounded-none bg-[#FDFEFF] sm:bg-transparent border-2 border-[rgba(18,52,91,0.12)] sm:border-0 shadow-sm sm:shadow-none active:scale-[0.98] sm:active:scale-100 min-h-[52px]"
             >
-              <img src="/material-symbols_call-outline.svg" alt="Call icon" className="w-6 h-6 opacity-90" />
+              <Image src="/material-symbols_call-outline.svg" alt="Call icon" width={24} height={24} className="w-6 h-6 opacity-90" />
               <span className="underline font-medium">8220776119</span>
             </a>
           </div>
@@ -61,7 +62,7 @@ export default function HeroSection() {
           {/* Info Box */}
           <div className="info-box bg-[#FDFEFF] rounded-xl sm:rounded-2xl p-4 sm:p-6 m-0 border border-[rgba(18,52,91,0.06)] flex flex-col sm:flex-row gap-4 sm:gap-6 items-stretch sm:items-center shadow-[0_4px_12px_rgba(0,0,0,0.04)]">
             <div className="info-item flex items-start gap-3 sm:gap-3.5 flex-1">
-              <img src="/mdi_clock-outline.svg" alt="Clock icon" className="w-5 h-5 sm:w-6 sm:h-6 shrink-0 mt-0.5" />
+              <Image src="/mdi_clock-outline.svg" alt="Clock icon" width={24} height={24} className="w-5 h-5 sm:w-6 sm:h-6 shrink-0 mt-0.5" />
               <div className="flex-1 min-w-0">
                 <div className="label text-xs sm:text-xs text-[#666] uppercase font-semibold mb-2 text-left">Opening Hours</div>
                 <div className="value text-base sm:text-base font-semibold text-[#222] leading-relaxed text-left">11 AM – 2 PM<br />6 PM – 9 PM</div>
@@ -69,7 +70,7 @@ export default function HeroSection() {
             </div>
             <div className="divider w-full h-px sm:w-px sm:h-[50px] bg-[#e0e8f2] shrink-0"></div>
             <div className="info-item flex items-start gap-3 sm:gap-3.5 flex-1">
-              <img src="/icon location-light.svg" alt="Location icon" className="w-5 h-5 sm:w-6 sm:h-6 shrink-0 mt-0.5" />
+              <Image src="/icon location-light.svg" alt="Location icon" width={24} height={24} className="w-5 h-5 sm:w-6 sm:h-6 shrink-0 mt-0.5" />
               <div className="flex-1 min-w-0">
                 <div className="label text-xs sm:text-xs text-[#666] uppercase font-semibold mb-2 text-left">Location</div>
                 <div className="value text-base sm:text-base font-semibold text-[#222] leading-relaxed text-left">Vadachery Road,<br />Pattukkottai</div>
@@ -81,15 +82,15 @@ export default function HeroSection() {
         {/* IMAGE + DOCTOR CARD */}
         {/* Mobile View - Separate Structure */}
         <div className="image-wrapper-mobile md:hidden w-full max-w-[400px] mx-auto rounded-xl overflow-hidden relative order-1 mt-8">
-          <div className="parallax-layer relative rounded-xl overflow-hidden will-change-transform">
+          <div ref={parallaxImgRefMobile} className="parallax-layer relative rounded-xl overflow-hidden will-change-transform" style={{ transform: 'scale(1.05)' }}>
             {/* Background Image */}
-            <img
-              ref={parallaxImgRefMobile}
+            <Image
               src="/images/hero-banner.jpg"
               alt="Dr. Aravind Ravichandran"
-              className="w-full h-auto block object-cover will-change-transform transition-transform duration-100 ease-out"
-              style={{ transform: 'scale(1.05)' }}
-              loading="eager"
+              width={800}
+              height={600}
+              className="w-full h-auto block object-cover transition-transform duration-100 ease-out"
+              priority
             />
 
             {/* Mobile Doctor Card - Centered (using left-[95%] to account for image scale transform) */}
@@ -112,14 +113,14 @@ export default function HeroSection() {
 
         {/* Desktop/Tablet View - Separate Structure */}
         <div className="image-wrapper-desktop hidden md:block w-full max-w-[480px] lg:max-w-[580px] lg:w-1/2 h-auto mx-auto lg:mx-0 rounded-2xl overflow-hidden relative shrink-0 order-2 self-auto">
-          <div className="parallax-layer will-change-transform rounded-2xl overflow-hidden relative">
-            <img 
-              ref={parallaxImgRefDesktop}
+          <div ref={parallaxImgRefDesktop} className="parallax-layer will-change-transform rounded-2xl overflow-hidden relative" style={{ transform: 'scale(1.1)' }}>
+            <Image 
               src="/images/hero-banner.jpg" 
               alt="Dr. Aravind Ravichandran" 
-              className="w-full h-auto block will-change-transform transition-transform duration-100 ease-out"
-              style={{ transform: 'scale(1.1)' }}
-              loading="eager"
+              width={800}
+              height={600}
+              className="w-full h-auto block transition-transform duration-100 ease-out"
+              priority
             />
             {/* Desktop Doctor Card - Original Position */}
             <div className="doctor-card-desktop absolute bottom-6 lg:bottom-[38px] left-6 lg:left-[38px] bg-[#FDFEFF] p-4 lg:p-[18px_30px] rounded-2xl flex items-center gap-4 lg:gap-6 shadow-[0_16px_48px_rgba(0,0,0,0.14)] animate-[float_6.8s_ease-in-out_infinite] max-w-[320px]">

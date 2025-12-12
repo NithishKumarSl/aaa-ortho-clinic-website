@@ -68,9 +68,11 @@ export default function TreatmentsSection() {
           <div className="flex flex-row gap-4 md:gap-6 items-center mb-8 sm:mb-10 md:mb-8">
             <div className="info-item flex items-center gap-3 sm:gap-3.5">
               <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg border border-[rgba(18,52,91,0.12)] flex items-center justify-center shrink-0 bg-transparent">
-                <img 
+                <Image 
                   src="/icon location-light.svg" 
                   alt="Treatment icon" 
+                  width={20}
+                  height={20}
                   className="w-5 h-5 sm:w-5 opacity-70"
                 />
               </div>
@@ -81,9 +83,11 @@ export default function TreatmentsSection() {
             <div className="divider hidden md:block w-px self-stretch bg-[#e0e8f2] shrink-0"></div>
             <div className="info-item flex items-center gap-3 sm:gap-3.5">
               <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg border border-[rgba(18,52,91,0.12)] flex items-center justify-center shrink-0 bg-transparent">
-                <img 
+                <Image 
                   src="/mdi_clock-outline.svg" 
                   alt="Process icon" 
+                  width={20}
+                  height={20}
                   className="w-5 h-5 sm:w-5 opacity-70"
                 />
               </div>
