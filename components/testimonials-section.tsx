@@ -65,24 +65,20 @@ export default function TestimonialsSection() {
 
   const testimonials = [
     {
-      quote: "Knee pain reduced in 2 visits, doctor explained everything clearly.",
-      author: "Patient 1",
-      img: "/Testimonialsimg/t1.png",
+      quote: "I went here for my back pain and the doctor very nicely explained the cause of the pain. That's what's so special about this clinic. It's a clinic for the future.",
+      author: "Ramesh from vadaseri",
     },
     {
-      quote: "Back pain improved quickly with clear guidance.",
-      author: "Patient 2",
-      img: "/Testimonialsimg/t2.png",
+      quote: "I am a diabetic suffering from shoulder pain. I was not able to take care of myself due to this pain. I did physiotherapy here and now I am free of pain. Physiotherapy is very helpful when done here.",
+      author: "Thulasi from veerakurichi",
     },
     {
-      quote: "Doctor explained every detail—very professional.",
-      author: "Patient 3",
-      img: "/Testimonialsimg/t3.png",
+      quote: "My daughter fell down and broke her hand. The doctor advised surgery for my child. Now my daughter is doing well after the surgery. Thanks to the doctor and team.",
+      author: "Renuga from edaiyur",
     },
     {
-      quote: "Friendly staff and comfortable environment.",
-      author: "Patient 4",
-      img: "/Testimonialsimg/t4.png",
+      quote: "I had knee pain for many years. The doctor here advised me to have knee surgery. After surgery, I am free of knee pain and able to walk without support. I am so grateful to him.",
+      author: "Thulasi from pattukkottai",
     },
   ];
 
@@ -126,12 +122,23 @@ export default function TestimonialsSection() {
                 transition={{ duration: 0.5, delay: 0.1 + i * 0.15, ease: "easeOut" }}
                  className="bg-white border-2 border-[#d8e7ff] rounded-xl sm:rounded-2xl shadow-[0_10px_24px_rgba(15,95,204,0.08)] p-6 sm:p-6 md:p-7 min-w-[280px] sm:min-w-[300px] max-w-[300px] scroll-snap-align-start shrink-0 text-[#0a65d9] hover:border-[#0a65d9] transition-colors"
               >
-                <img
-                  src={t.img}
-                  alt={`${t.author} testimonial`}
-                  className="w-14 h-14 sm:w-14 sm:h-14 rounded-xl sm:rounded-xl object-cover mb-4 sm:mb-5"
-                  loading="lazy"
-                />
+                <div className="w-14 h-14 sm:w-14 sm:h-14 rounded-xl sm:rounded-xl bg-[#0a65d9] flex items-center justify-center mb-4 sm:mb-5">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="white"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="w-7 h-7"
+                  >
+                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                  </svg>
+                </div>
                 <p className="text-base sm:text-base leading-relaxed mb-4">{t.quote}</p>
                 <footer className="text-sm sm:text-sm text-[#7c8bb0] font-medium">— {t.author}</footer>
               </motion.blockquote>
