@@ -96,7 +96,7 @@ export default function Navbar() {
         <div className="mobile-contact mt-auto pt-6 border-t border-[#e0e8f2]">
           <a href="tel:+918220776119" className="btn w-full inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-xl font-semibold no-underline bg-[linear-gradient(180deg,#1c76e4,#0a65d9)] text-white shadow-[0_8px_22px_rgba(10,101,217,0.28)] hover:-translate-y-0.5 hover:shadow-[0_12px_28px_rgba(10,101,217,0.35)] transition-all active:scale-[0.98] min-h-[52px] text-base">
             <Phone size={20} />
-            Get Free Relief Today
+            Book Appointment
           </a>
         </div>
       </div>

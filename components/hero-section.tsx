@@ -55,7 +55,7 @@ export default function HeroSection() {
               className="call text-[#0a65d9] font-semibold text-base sm:text-base flex items-center justify-center gap-2.5 no-underline whitespace-nowrap py-4 sm:py-0 px-6 sm:px-0 rounded-xl sm:rounded-none bg-[#FDFEFF] sm:bg-transparent border-2 border-[rgba(18,52,91,0.12)] sm:border-0 shadow-sm sm:shadow-none active:scale-[0.98] sm:active:scale-100 min-h-[52px]"
             >
               <Image src="/material-symbols_call-outline.svg" alt="Call icon" width={24} height={24} className="w-6 h-6 opacity-90" />
-              <span className="underline font-medium">8220776119</span>
+              <span className="font-medium">Book Appointment</span>
             </a>
           </div>
 
