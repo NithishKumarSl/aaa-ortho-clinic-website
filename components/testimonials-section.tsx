@@ -13,28 +13,31 @@ export default function TestimonialsSection() {
     const carousel = carouselRef.current;
     if (!carousel) return;
 
-    const scrollSpeed = 1.1;
-    let interval: ReturnType<typeof setInterval> | null = null;
+    const scrollSpeed = 0.8;
+    let animationId: number | null = null;
     let isPaused = false;
 
     const autoScroll = () => {
       if (isPaused || !carousel) return;
+      
       carousel.scrollLeft += scrollSpeed;
 
       const halfWidth = carousel.scrollWidth / 2;
       if (carousel.scrollLeft >= halfWidth) {
         carousel.scrollLeft = carousel.scrollLeft - halfWidth;
       }
+
+      animationId = requestAnimationFrame(autoScroll);
     };
 
     const start = () => {
-      if (!interval) interval = setInterval(autoScroll, 18);
+      if (!animationId) animationId = requestAnimationFrame(autoScroll);
     };
 
     const stop = () => {
-      if (interval) {
-        clearInterval(interval);
-        interval = null;
+      if (animationId) {
+        cancelAnimationFrame(animationId);
+        animationId = null;
       }
     };
 
@@ -111,8 +114,7 @@ export default function TestimonialsSection() {
         >
           <div
             ref={carouselRef}
-            className="flex gap-5 sm:gap-6 md:gap-7 pl-5 sm:pl-6 md:pl-1 overflow-x-auto scroll-smooth scroll-snap-x-mandatory [-webkit-overflow-scrolling:touch] [scrollbar-width:none]"
-            style={{ scrollSnapType: "x mandatory" }}
+            className="flex gap-5 sm:gap-6 md:gap-7 pl-5 sm:pl-6 md:pl-1 overflow-x-auto [-webkit-overflow-scrolling:touch] [scrollbar-width:none]"
           >
              {loopedTestimonials.map((t, i) => (
               <motion.blockquote

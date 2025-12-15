@@ -4,13 +4,19 @@ import Image from "next/image"
 
 export default function HeroSection() {
   return (
-    <section className="hero min-h-[calc(100vh-70px)] py-8 pb-12 pt-38 sm:pt-40 md:pt-[160px] bg-[linear-gradient(142deg,#f8fbff,#edf4ff)] px-5 sm:px-6 md:px-[5%] md:py-[50px] md:pb-[80px] md:min-h-[calc(100vh-80px)]">
+    <section className="hero min-h-[calc(100vh-70px)] pt-20 sm:pt-24 md:pt-28 pb-12 sm:pb-14 md:pb-16 bg-[linear-gradient(142deg,#f8fbff,#edf4ff)] px-5 sm:px-6 md:px-[5%]">
       <div className="container max-w-[1280px] mx-auto flex flex-col md:flex-row items-start md:items-center gap-8 sm:gap-12 md:gap-[60px] text-left md:justify-between">
         {/* Hero Content */}
         <div className="hero-content max-w-[540px] w-full text-left order-2 md:order-1 flex flex-col justify-center">
+          {/* Hidden SEO text for brand + description (not visually shown) */}
+          <div className="sr-only">
+            <h1>AAA Ortho Clinic</h1>
+            <p>Official website of AAA Ortho Clinic – Orthopedic Care</p>
+          </div>
+
           <p className="tagline text-sm sm:text-base font-semibold text-[#0a65d9] mb-3 sm:mb-4 leading-[1.4] text-left">உடம்பை வளர்த்தேன், உயிர் வளர்த்தேன்</p>
           <h4 className="sub-heading text-lg sm:text-xl font-medium text-[#444] mb-4 sm:mb-5 leading-[1.3] text-left">Orthopedic Clinic in Pattukkottai</h4>
-          <h1 className="hero-title text-[36px] sm:text-[42px] md:text-[48px] font-extrabold text-[#1c76e4] my-0 mb-5 sm:mb-6 md:mb-6 leading-[1.15] sm:leading-[1.2] text-left">
+          <h1 className="hero-title text-[30px] sm:text-[36px] md:text-[42px] font-extrabold text-[#1c76e4] my-0 mb-5 sm:mb-6 md:mb-6 leading-[1.15] sm:leading-[1.2] text-left">
             Expert Bone & Joint Pain Treatment
           </h1>
           <p className="hero-desc text-base sm:text-lg font-normal text-[#666] mb-8 sm:mb-10 leading-[1.65] sm:leading-[1.7] p-0 text-left">
