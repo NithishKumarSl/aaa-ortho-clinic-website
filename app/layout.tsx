@@ -7,6 +7,11 @@ export const metadata: Metadata = {
   description:
     "Official website of AAA Ortho Clinic – Orthopedic Care. Expert bone & joint pain treatment in Pattukkottai, trusted orthopaedic care for families.",
   generator: "v0.app",
+  icons: {
+    icon: "/aaaorthoclinic.ico",
+    shortcut: "/aaaorthoclinic.ico",
+    apple: "/aaaorthoclinic.ico",
+  },
 }
 
 export default function RootLayout({
@@ -22,6 +27,7 @@ export default function RootLayout({
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap"
         />
+        <link rel="icon" href="/aaaorthoclinic.ico" sizes="any" />
       </head>
       <body className="font-sans antialiased" suppressHydrationWarning>
         {children}
