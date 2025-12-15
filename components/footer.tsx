@@ -32,7 +32,7 @@ export default function Footer() {
 
               <div className="footer-info-box bg-[#FDFEFF] rounded-xl sm:rounded-2xl p-5 sm:p-6 md:p-6 m-0 border border-[rgba(18,52,91,0.06)] flex flex-col sm:flex-row gap-5 sm:gap-6 items-stretch sm:items-center shadow-[0_4px_12px_rgba(0,0,0,0.04)]">
                 <div className="info-item flex items-start gap-3.5 sm:gap-4 flex-1">
-                  <Image src="/mdi_clock-outline.svg" alt="Clock icon" width={24} height={24} className="w-6 h-6 sm:w-6 sm:h-6 shrink-0 mt-0.5" />
+                  <Image src="/mdi_clock-outline.svg" alt="Clock icon" width={24} height={24} className="w-6 h-6 sm:w-6 sm:h-6 shrink-0 mt-0.5" loading="lazy" />
                   <div className="flex-1">
                     <div className="label text-sm sm:text-[13px] font-normal text-[#666] mb-2 sm:mb-1.5 leading-[1.3]">Opening Hours</div>
                     <div className="value text-base sm:text-[15px] font-semibold text-[#222] leading-[1.4]">11 AM – 2 PM<br />6 PM – 9 PM</div>
@@ -40,7 +40,7 @@ export default function Footer() {
                 </div>
                 <div className="divider w-full h-px sm:w-px sm:h-[50px] bg-[#e0e8f2] shrink-0"></div>
                 <div className="info-item flex items-start gap-3.5 sm:gap-4 flex-1">
-                  <Image src="/icon location-light.svg" alt="Location icon" width={24} height={24} className="w-6 h-6 sm:w-6 sm:h-6 shrink-0 mt-0.5" />
+                  <Image src="/icon location-light.svg" alt="Location icon" width={24} height={24} className="w-6 h-6 sm:w-6 sm:h-6 shrink-0 mt-0.5" loading="lazy" />
                   <div className="flex-1">
                     <div className="label text-sm sm:text-[13px] font-normal text-[#666] mb-2 sm:mb-1.5 leading-[1.3]">Location</div>
                     <div className="value text-base sm:text-[15px] font-semibold text-[#222] leading-[1.4]">Vadachery Road,<br />Pattukkottai</div>

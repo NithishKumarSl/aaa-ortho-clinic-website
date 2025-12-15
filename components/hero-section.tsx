@@ -1,30 +1,8 @@
 "use client"
 
-import { useEffect, useRef } from "react"
 import Image from "next/image"
 
 export default function HeroSection() {
-  const parallaxImgRefMobile = useRef<HTMLImageElement>(null)
-  const parallaxImgRefDesktop = useRef<HTMLImageElement>(null)
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      // Apply parallax to desktop image (mobile doesn't need parallax on touch devices)
-      if (parallaxImgRefDesktop.current && window.innerWidth >= 768) {
-        const { clientX, clientY } = e
-        const { innerWidth, innerHeight } = window
-        
-        const xPos = (clientX / innerWidth - 0.5) * 20
-        const yPos = (clientY / innerHeight - 0.5) * 20
-        
-        parallaxImgRefDesktop.current.style.transform = `translate(${xPos}px, ${yPos}px) scale(1.1)`
-      }
-    }
-
-    window.addEventListener('mousemove', handleMouseMove)
-    return () => window.removeEventListener('mousemove', handleMouseMove)
-  }, [])
-
   return (
     <section className="hero min-h-[calc(100vh-70px)] py-8 pb-12 pt-38 sm:pt-40 md:pt-[160px] bg-[linear-gradient(142deg,#f8fbff,#edf4ff)] px-5 sm:px-6 md:px-[5%] md:py-[50px] md:pb-[80px] md:min-h-[calc(100vh-80px)]">
       <div className="container max-w-[1280px] mx-auto flex flex-col md:flex-row items-start md:items-center gap-8 sm:gap-12 md:gap-[60px] text-left md:justify-between">
@@ -54,7 +32,7 @@ export default function HeroSection() {
               href="tel:8220776119" 
               className="call text-[#0a65d9] font-semibold text-base sm:text-base flex items-center justify-center gap-2.5 no-underline whitespace-nowrap py-4 sm:py-0 px-6 sm:px-0 rounded-xl sm:rounded-none bg-[#FDFEFF] sm:bg-transparent border-2 border-[rgba(18,52,91,0.12)] sm:border-0 shadow-sm sm:shadow-none active:scale-[0.98] sm:active:scale-100 min-h-[52px]"
             >
-              <Image src="/material-symbols_call-outline.svg" alt="Call icon" width={24} height={24} className="w-6 h-6 opacity-90" />
+              <Image src="/material-symbols_call-outline.svg" alt="Call icon" width={24} height={24} className="w-6 h-6 opacity-90" loading="lazy" />
               <span className="font-medium">Book Appointment</span>
             </a>
           </div>
@@ -62,7 +40,7 @@ export default function HeroSection() {
           {/* Info Box */}
           <div className="info-box bg-[#FDFEFF] rounded-xl sm:rounded-2xl p-4 sm:p-6 m-0 border border-[rgba(18,52,91,0.06)] flex flex-col sm:flex-row gap-4 sm:gap-6 items-stretch sm:items-center shadow-[0_4px_12px_rgba(0,0,0,0.04)]">
             <div className="info-item flex items-start gap-3 sm:gap-3.5 flex-1">
-              <Image src="/mdi_clock-outline.svg" alt="Clock icon" width={24} height={24} className="w-5 h-5 sm:w-6 sm:h-6 shrink-0 mt-0.5" />
+              <Image src="/mdi_clock-outline.svg" alt="Clock icon" width={24} height={24} className="w-5 h-5 sm:w-6 sm:h-6 shrink-0 mt-0.5" loading="lazy" />
               <div className="flex-1 min-w-0">
                 <div className="label text-xs sm:text-xs text-[#666] uppercase font-semibold mb-2 text-left">Opening Hours</div>
                 <div className="value text-base sm:text-base font-semibold text-[#222] leading-relaxed text-left">11 AM – 2 PM<br />6 PM – 9 PM</div>
@@ -70,7 +48,7 @@ export default function HeroSection() {
             </div>
             <div className="divider w-full h-px sm:w-px sm:h-[50px] bg-[#e0e8f2] shrink-0"></div>
             <div className="info-item flex items-start gap-3 sm:gap-3.5 flex-1">
-              <Image src="/icon location-light.svg" alt="Location icon" width={24} height={24} className="w-5 h-5 sm:w-6 sm:h-6 shrink-0 mt-0.5" />
+              <Image src="/icon location-light.svg" alt="Location icon" width={24} height={24} className="w-5 h-5 sm:w-6 sm:h-6 shrink-0 mt-0.5" loading="lazy" />
               <div className="flex-1 min-w-0">
                 <div className="label text-xs sm:text-xs text-[#666] uppercase font-semibold mb-2 text-left">Location</div>
                 <div className="value text-base sm:text-base font-semibold text-[#222] leading-relaxed text-left">Vadachery Road,<br />Pattukkottai</div>
@@ -82,14 +60,14 @@ export default function HeroSection() {
         {/* IMAGE + DOCTOR CARD */}
         {/* Mobile View - Separate Structure */}
         <div className="image-wrapper-mobile md:hidden w-full max-w-[400px] mx-auto rounded-xl overflow-hidden relative order-1 mt-8">
-          <div ref={parallaxImgRefMobile} className="parallax-layer relative rounded-xl overflow-hidden will-change-transform" style={{ transform: 'scale(1.05)' }}>
+          <div className="relative rounded-xl overflow-hidden" style={{ transform: 'scale(1.05)' }}>
             {/* Background Image */}
             <Image
               src="/images/hero-banner.jpg"
               alt="Dr. Aravind Ravichandran"
               width={800}
               height={600}
-              className="w-full h-auto block object-cover transition-transform duration-100 ease-out"
+              className="w-full h-auto block object-cover"
               priority
             />
 
@@ -113,13 +91,13 @@ export default function HeroSection() {
 
         {/* Desktop/Tablet View - Separate Structure */}
         <div className="image-wrapper-desktop hidden md:block w-full max-w-[480px] lg:max-w-[580px] lg:w-1/2 h-auto mx-auto lg:mx-0 rounded-2xl overflow-hidden relative shrink-0 order-2 self-auto">
-          <div ref={parallaxImgRefDesktop} className="parallax-layer will-change-transform rounded-2xl overflow-hidden relative" style={{ transform: 'scale(1.1)' }}>
+          <div className="rounded-2xl overflow-hidden relative" style={{ transform: 'scale(1.1)' }}>
             <Image 
               src="/images/hero-banner.jpg" 
               alt="Dr. Aravind Ravichandran" 
               width={800}
               height={600}
-              className="w-full h-auto block transition-transform duration-100 ease-out"
+              className="w-full h-auto block"
               priority
             />
             {/* Desktop Doctor Card - Original Position */}

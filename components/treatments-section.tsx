@@ -19,27 +19,27 @@ export default function TreatmentsSection() {
   const treatmentCards = [
     {
       title: "Joint Pain Treatment",
-      image: "/treatments/JointPainTreatment.png",
+      image: "/treatments/JointPainTreatment.webp",
     },
     {
       title: "Back Pain Treatment",
-      image: "/treatments/BackPainTreatment.png",
+      image: "/treatments/BackPainTreatment.webp",
     },
     {
       title: "Fracture Treatment",
-      image: "/treatments/FractureTreatment.png",
+      image: "/treatments/FractureTreatment.webp",
     },
     {
       title: "Arthritis Management",
-      image: "/treatments/ArthritisManagement.png",
+      image: "/treatments/ArthritisManagement.webp",
     },
     {
       title: "Shoulder & Neck Pain",
-      image: "/treatments/Shoulder&NeckPain.png",
+      image: "/treatments/Shoulder&NeckPain.webp",
     },
     {
       title: "Sports Injury & Muscle Sprain",
-      image: "/treatments/SportsInjury&MuscleSprain.png",
+      image: "/treatments/SportsInjury&MuscleSprain.webp",
     },
   ]
 
